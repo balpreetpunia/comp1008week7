@@ -5,6 +5,8 @@
  */
 package week7;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hello
@@ -15,7 +17,17 @@ public class Week7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        ArrayList<String> features = new ArrayList<String>();
+        features.add("leather");
+        
+        Car car = new Car("Nissan", "Sedan", 2007, 15.00, 10000.00, features );
+        newViewCar();
+        
+    }
+    
+    public void newViewCar(){
+        CarViewController.generateCarButtonPushed();
     }
     
 }
