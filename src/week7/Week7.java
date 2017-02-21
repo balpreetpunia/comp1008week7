@@ -19,7 +19,9 @@ public class Week7 {
     public static void main(String[] args) {
 
         ArrayList<String> features = new ArrayList<String>();
-        features.add("leather");
+        features.add("Leather");
+        features.add("Navigation System");
+        features.add("Computerised parking system");
         
         Car car = new Car("Nissan", "Sedan", 2007, 15.00, 10000.00, features );
         //newViewCar();
