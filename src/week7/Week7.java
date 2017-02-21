@@ -22,12 +22,13 @@ public class Week7 {
         features.add("leather");
         
         Car car = new Car("Nissan", "Sedan", 2007, 15.00, 10000.00, features );
-        newViewCar();
+        //newViewCar();
+        System.out.print("Car successfully created \n");
+        
         
     }
-    
     public void newViewCar(){
-        CarViewController.generateCarButtonPushed();
+       // CarViewController.generateCarButtonPushed();
     }
     
 }
