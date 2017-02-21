@@ -21,6 +21,7 @@ public class CarTest {
     
     Car validCar;
     
+    
     public CarTest() {
     }
     
@@ -34,7 +35,10 @@ public class CarTest {
     
     @Before
     public void setUp() {
-        validCar = new Car("Anita", "Job", "31 Employment Ave", "Happivale", "ON","T3T2B2", LocalDate.of(2000, Month.MAY, 10));
+        ArrayList<String> features = new ArrayList<String>();
+        features.add("leather");
+        
+        validCar = new Car("Nissan", "Sedan", 2007, 15.00, 10000.00, features );
     }
     
     @After
@@ -47,11 +51,9 @@ public class CarTest {
     @Test
     public void testSetMake() {
         System.out.println("setMake");
-        String make = "";
-        Car instance = null;
-        instance.setMake(make);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String make = "Nissan";
+        validCar.setMake(make);
+        assertEquals(make, validCar.getMake());
     }
 
     /**
@@ -60,37 +62,67 @@ public class CarTest {
     @Test
     public void testSetModel() {
         System.out.println("setModel");
-        String model = "";
-        Car instance = null;
-        instance.setModel(model);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String model = "Sedan";
+        validCar.setModel(model);
+        assertEquals(model, validCar.getModel());
     }
 
     /**
-     * Test of setYear method, of class Car.
+     * Test of setYearValid method, of class Car.
      */
     @Test
-    public void testSetYear() {
+    public void testSetYearValid() {
         System.out.println("setYear");
-        int year = 0;
-        Car instance = null;
-        instance.setYear(year);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int year = 2007;
+        validCar.setYear(year);
+        assertEquals(year, validCar.getYear());
     }
 
     /**
-     * Test of setMileage method, of class Car.
+     * Test of setYearValid method, of class Car.
      */
     @Test
-    public void testSetMileage() {
+    public void testSetYearInvalid() {
+        System.out.println("setYear");
+        int year = 2020;
+        try
+        {
+            validCar.setYear(year);
+            fail("setYear should have thrown an exception");
+        }
+        catch (IllegalArgumentException e)
+        {
+             
+        }
+    }
+    
+    /**
+     * Test of setMileageValid method, of class Car.
+     */
+    @Test
+    public void testSetMileageValid() {
         System.out.println("setMileage");
-        Double mileage = null;
-        Car instance = null;
-        instance.setMileage(mileage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Double mileage = 15.00;
+        validCar.setMileage(mileage);
+        assertEquals(mileage, validCar.getMileage());
+    }
+    
+    /**
+     * Test of setMileageInvalid method, of class Car.
+     */
+    @Test
+    public void testSetMileageInvalid() {
+        System.out.println("setMileage");
+        Double mileage = -4.00;
+        try
+        {
+            validCar.setMileage(mileage);
+            fail("setYear should have thrown an exception");
+        }
+        catch (IllegalArgumentException e)
+        {
+             
+        }
     }
 
     /**
@@ -99,11 +131,9 @@ public class CarTest {
     @Test
     public void testSetSellPrice() {
         System.out.println("setSellPrice");
-        Double sellPrice = null;
-        Car instance = null;
-        instance.setSellPrice(sellPrice);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Double sellPrice = 10000.00;
+        validCar.setSellPrice(sellPrice);
+        assertEquals(sellPrice, validCar.getSellPrice());
     }
 
     /**
@@ -112,11 +142,31 @@ public class CarTest {
     @Test
     public void testSetFeatures() {
         System.out.println("setFeatures");
-        ArrayList<String> features = null;
-        Car instance = null;
-        instance.setFeatures(features);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<String> features = new ArrayList<String>();
+        features.add("leather");
+        validCar.setFeatures(features);
+        assertEquals(features, validCar.getFeatures());
     }
     
+    /**
+     * Test of getMake method, of class Car.
+     */
+    @Test
+    public void testGetMake() {
+        System.out.println("getMake");
+        String expResult = "Nissan";
+        String result = validCar.getMake();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of getModel method, of class Car.
+     */
+    @Test
+    public void testGetModel() {
+        System.out.println("getModel");
+        String expResult = "Sedan";
+        String result = validCar.getModel();
+        assertEquals(expResult, result);
+    }
 }
